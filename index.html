@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Secret Santa</h1>
+            <p class="subtitle">Magically assign gift partners</p>
+        </header>
+
+        <section class="input-section">
+            <div class="input-group">
+                <input type="text" id="nameInput" placeholder="Enter a name..." autocomplete="off">
+                <button id="addBtn" class="btn-primary">Add</button>
+            </div>
+        </section>
+
+        <section class="participants-section">
+            <div class="participants-header">
+                <h2>Participants</h2>
+                <span id="countBadge" class="count-badge">0</span>
+            </div>
+            <div id="nameList" class="name-list">
+                <p class="empty-state">No participants added yet.</p>
+            </div>
+        </section>
+
+        <div class="action-area">
+            <button id="wheelModeBtn" class="btn-primary btn-block"
+                style="margin-top: 10px; background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);">Spin the Wheel
+            </button>
+        </div>
+
+        <section id="resultsArea" class="results-area">
+            <div class="participants-header">
+                <h2>Matches</h2>
+                <button id="resetBtn" class="count-badge"
+                    style="cursor: pointer; border:none; background: rgba(255,255,255,0.1); color: #fff;">Reset</button>
+            </div>
+            <div id="pairsList">
+                <!-- Pairs will appear here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Wheel Modal -->
+    <div id="wheelModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="turnIndicator">It's [Name]'s turn!</h2>
+            <div class="wheel-container">
+                <div class="pointer"></div>
+                <canvas id="wheelCanvas" width="400" height="400"></canvas>
+            </div>
+            <button id="spinBtn" class="btn-primary spin-btn">SPIN!</button>
+            <div id="wheelResult" class="wheel-result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
